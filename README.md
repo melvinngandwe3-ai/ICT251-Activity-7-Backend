@@ -85,15 +85,17 @@ The API checks field types, trimmed lengths, allowed statuses and positive whole
 
 A Postman collection is included as `postman_collection.json`. Change its `baseUrl` variable to the live URL after deployment.
 
-## Deploy
-The assignment asks for a live backend base URL. Deploy this repository as a Node.js Web Service on Render or a lecturer-approved equivalent:
-- Build command: `npm install`
-- Start command: `npm start`
-- Add `DATABASE_URL` with the hosted PostgreSQL connection string.
-- Set `DB_SSL=true` if the database provider requires SSL; otherwise use `false`.
-- Set `CLIENT_ORIGINS=*` for the classroom API demo, or use the exact frontend URL later.
-- Set `PUBLIC_BASE_URL` to the assigned HTTPS service URL.
+## Live deployment
+- **Live API base URL:** https://ict251-support-desk-api.onrender.com
+- **Hosting:** Render Web Service (free plan)
+- **Database:** Render PostgreSQL 18 (free plan)
+- **Build command:** `npm install`
+- **Start command:** `npm start`
+- **Health check:** `/health`
 
-The server runs `schema.sql` and `seed.sql` at startup. The database must be persistent; do not rely on temporary local files. After deployment, test the health route and all CRUD routes using the live URL. Free hosting may pause when idle, so the first request can take time.
+The Render Blueprint is stored in `render.yaml`. It provisions the web service and PostgreSQL database and connects the database through the `DATABASE_URL` environment variable. The application creates the records table and inserts the eight sample records at startup if the table is empty.
 
-**Submission:** Activity 7 requires the live backend base URL. The GitHub repository URL alone is not the live API URL. Do not submit until the service is deployed and tested.
+## Submission
+Submit the live API base URL together with the GitHub repository URL if the lecturer requests both. The Postman collection is included as `postman_collection.json` and its baseUrl variable is set to the live service URL. Test the health route and CRUD routes before final submission.
+
+**Hosting note:** Render's free PostgreSQL instance currently shows an expiry date of 24 December 2026. Keep this in mind if the marker needs to access the database after that date. Free web services may sleep when idle and can take time to wake on the first request.
