@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: ict251-support-desk-api
+    runtime: node
+    plan: free
+    region: frankfurt
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: ict251-support-desk-db
+          property: connectionString
+      - key: DB_SSL
+        value: "false"
+      - key: CLIENT_ORIGINS
+        value: "*"
+
+databases:
+  - name: ict251-support-desk-db
+    databaseName: ict251_support_desk_db
+    plan: free
+    region: frankfurt
+    postgresMajorVersion: 18
