@@ -1,0 +1,82 @@
+{
+  "info": {
+    "name": "ICT251 Activity 7 - IT Support Desk API",
+    "_postman_id": "d2a04a70-4f4a-4a60-9e0e-ict251activity7",
+    "description": "CRUD tests for the IT Support Desk API. Change baseUrl and recordId as needed.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3000"
+    },
+    {
+      "key": "recordId",
+      "value": "1"
+    }
+  ],
+  "item": [
+    {
+      "name": "Health",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/health"
+      }
+    },
+    {
+      "name": "List records",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/records"
+      }
+    },
+    {
+      "name": "Get one record",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/records/{{recordId}}"
+      }
+    },
+    {
+      "name": "Create record",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Test network request\",\n  \"category\": \"Network\",\n  \"description\": \"Testing a network support request.\",\n  \"status\": \"Pending\"\n}"
+        },
+        "url": "{{baseUrl}}/api/records"
+      }
+    },
+    {
+      "name": "Update record",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Updated network request\",\n  \"category\": \"Network\",\n  \"description\": \"The network support request has been updated.\",\n  \"status\": \"In progress\"\n}"
+        },
+        "url": "{{baseUrl}}/api/records/{{recordId}}"
+      }
+    },
+    {
+      "name": "Delete record",
+      "request": {
+        "method": "DELETE",
+        "url": "{{baseUrl}}/api/records/{{recordId}}"
+      }
+    }
+  ]
+}
