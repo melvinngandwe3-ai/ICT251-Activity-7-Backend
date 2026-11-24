@@ -16,6 +16,8 @@ services:
         value: "false"
       - key: CLIENT_ORIGINS
         value: "*"
+      - key: PUBLIC_BASE_URL
+        value: "https://ict251-support-desk-api.onrender.com"
 
 databases:
   - name: ict251-support-desk-db
