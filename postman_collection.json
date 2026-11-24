@@ -1,7 +1,7 @@
 {
   "info": {
     "name": "ICT251 Activity 7 - IT Support Desk API",
-    "_postman_id": "d2a04a70-4f4a-4a60-9e0e-ict251activity7",
+    "_postman_id": "d2a04a70-4f4a-4a60-9e0e-1c7251ac71a7",
     "description": "CRUD tests for the IT Support Desk API. Change baseUrl and recordId as needed.",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
